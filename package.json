@@ -1,6 +1,6 @@
 {
   "name": "delayed-jobs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Delayed jobs made simple. Built over Kue and backed by Redis.",
   "main": "index.js",
   "repository": "git@github.com:jdesboeufs/delayed-jobs.git",
