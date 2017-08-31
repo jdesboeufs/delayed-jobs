@@ -7,7 +7,8 @@
   "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "xo"
+    "lint": "xo",
+    "test": "yarn lin"
   },
   "dependencies": {
     "debug": "^3.0.1",
