@@ -1,0 +1,30 @@
+{
+  "name": "delayed-jobs",
+  "version": "0.0.0",
+  "description": "Delayed jobs made simple. Built over Kue and backed by Redis.",
+  "main": "index.js",
+  "repository": "git@github.com:jdesboeufs/delayed-jobs.git",
+  "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "xo"
+  },
+  "dependencies": {
+    "debug": "^3.0.1",
+    "js-yaml": "^3.9.1",
+    "kue": "^0.11.6",
+    "lodash": "^4.17.4",
+    "redis": "^2.8.0",
+    "redlock": "^3.0.0"
+  },
+  "devDependencies": {
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2
+  },
+  "engines": {
+    "node": ">= 8.0"
+  }
+}
