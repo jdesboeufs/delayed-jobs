@@ -1,7 +1,7 @@
 'use strict'
 
 const {readFileSync} = require('fs')
-const {promisify} = require('uril')
+const {promisify} = require('util')
 
 const {createClient} = require('redis')
 const kue = require('kue')
