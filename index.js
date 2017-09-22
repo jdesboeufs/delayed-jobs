@@ -62,7 +62,7 @@ function startProcessing() {
 
   Object.keys(definitions).forEach(jobName => {
     queue.process(getFullJobName(jobName), definitions[jobName].concurrency || 1, (job, done) => {
-      runJobWrapper(jobName, job).then(() => done()).catch(done)
+      runJobWrapper(jobName, job).then(jobResult => done(null, jobResult)).catch(done)
     })
   })
 
@@ -159,6 +159,7 @@ async function runJobWrapper(jobName, job) {
   const {uniqueKey, timeout} = definition
 
   let jobLock
+  let jobResult
 
   if (uniqueKey && timeout && job.data[uniqueKey]) {
     jobLock = await lock(jobName, job.data[uniqueKey], timeout)
@@ -167,7 +168,7 @@ async function runJobWrapper(jobName, job) {
   debug('start processing job %s', jobName)
 
   try {
-    await require(jobsPath + '/' + jobName).handler({
+    jobResult = await require(jobsPath + '/' + jobName).handler({
       data: job.data,
       log: job.log.bind(job),
       progress: job.progress.bind(job)
@@ -182,6 +183,8 @@ async function runJobWrapper(jobName, job) {
   if (jobLock) {
     jobLock.unlock().catch(console.error)
   }
+
+  return jobResult
 }
 
 function mustBeConfigured() {
