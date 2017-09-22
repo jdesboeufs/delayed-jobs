@@ -1,6 +1,7 @@
 'use strict'
 
 const {readFileSync} = require('fs')
+const {promisify} = require('uril')
 
 const {createClient} = require('redis')
 const kue = require('kue')
@@ -139,6 +140,8 @@ function enqueue(jobName, jobData = {}, overrideOptions = {}) {
   })
 }
 
+const getJob = promisify(kue.Job.get)
+
 function getApp() {
   mustBeConfigured()
   return kue.app
@@ -200,5 +203,6 @@ module.exports = {
   startProcessing,
   queue,
   enqueue,
+  getJob,
   getApp
 }
