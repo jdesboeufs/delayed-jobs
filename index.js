@@ -22,7 +22,7 @@ let processing = false
 
 function configure(config) {
   if (configured) {
-    throw new Error('Already configured')
+    return
   }
 
   // Configure redlock
