@@ -18,7 +18,7 @@
     "redlock": "^3.0.0"
   },
   "devDependencies": {
-    "xo": "^0.18.2"
+    "xo": "^0.20.2"
   },
   "xo": {
     "semicolon": false,
