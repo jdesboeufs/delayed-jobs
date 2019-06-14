@@ -15,7 +15,7 @@
     "kue": "^0.11.6",
     "lodash": "^4.17.4",
     "redis": "^2.8.0",
-    "redlock": "^3.0.0"
+    "redlock": "^4.0.0"
   },
   "devDependencies": {
     "xo": "^0.18.2"
